@@ -16,14 +16,35 @@ def transaction_id(length=10):
     print(" Randomly generated string is: ", result) 
     return result
 
-def add_item(data,item_name=np.nan, item_counts=np.nan, item_price=np.nan):
-    new_item = [
+def add_item(data,item_name=None, item_counts=None, item_price=None):
+    item_name   = item_name
+    item_counts = item_counts
+    item_price  = item_price
+    # Check apakah ada variable yang tidak terdefinisi
+    if item_name == None or item_counts == None or item_price == None:
+        print(item_name, item_counts, item_price)
+        item_name = str(input('Masukan Nama Barang : '))
+        item_counts = int(input('Masukan Jumlah Barang : '))
+        item_price = float(input('Masukan Harga Barang per-Buah : '))
+
+        new_item = [
         item_counts,
         item_price,
         item_counts*item_price
-    ]
-    data['item'][item_name] = new_item 
-    return data
+        ]
+        data['item'][item_name] = new_item
+        
+        return data
+    
+    else:
+        new_item = [
+        item_counts,
+        item_price,
+        item_counts*item_price
+        ]
+        data['item'][item_name] = new_item
+     
+        return data
 
 def delete_item(data,item_name):
     del data['item'][item_name]
@@ -102,20 +123,21 @@ def check_out(data):
 if __name__ == "__main__":
     id = transaction_id(10)
     data = transaction_obj(id)
-    add_item(data,'mobil', 1, 10000)
-    print(data)
-    add_item(data,'motor', 2, 2000)
-    print(data)
-    #delete_item(data, 'mobil')
-    print(data)
-    update_item_name(data,'motor','motorcycle')
-    update_item_qty(data,'motorcycle',3)
-    print(data)
-    update_item_price(data,'motorcycle',3000)
-    print(data['item'].values())
-    check_order(data)
+    # add_item(data,'mobil', 1, 10000)
+    add_item(data)
+    # print(data)
+    #add_item(data,'motor', 2, 2000)
+    # print(data)
+    # #delete_item(data, 'mobil')
+    # print(data)
+    # update_item_name(data,'motor','motorcycle')
+    # update_item_qty(data,'motorcycle',3)
+    # print(data)
+    # update_item_price(data,'motorcycle',3000)
+    # print(data['item'].values())
+    # check_order(data)
 
-    disc, total = check_out(data)
+    # disc, total = check_out(data)
 
-    reset_transaction(data)
+    # reset_transaction(data)
    
