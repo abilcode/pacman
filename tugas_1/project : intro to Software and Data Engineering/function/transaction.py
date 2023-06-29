@@ -46,7 +46,9 @@ def add_item(data,item_name=None, item_counts=None, item_price=None):
      
         return data
 
-def delete_item(data,item_name):
+def delete_item(data,item_name=None):
+    
+    item_name = str(input('Masukan Nama Barang yang ingin dihapus: '))
     del data['item'][item_name]
     return data
 
@@ -60,16 +62,22 @@ def reset_transaction(data):
     
     return data
 
-def update_item_name(data,item_name,updated_name):
+def update_item_name(data,item_name=None,updated_name=None):
+    item_name = str(input('Masukan nama barang yang ingin diganti: '))
+    updated_name = str(input('Masukan nama pengganti barang: '))
     data['item'][updated_name] = data['item'].pop(item_name)
     return data
 
-def update_item_qty(data,item_name,updated_counts):
+def update_item_qty(data,item_name=None,updated_counts=None):
+    item_name = str(input('Masukan nama barang yang ingin diganti: '))
+    updated_counts = int(input(f'Masukan jumlah pengganti dari barang {item_name}: '))
     data['item'][item_name][0] = updated_counts
     data['item'][item_name][2] = data['item'][item_name][0]*data['item'][item_name][1]
     return data
 
-def update_item_price(data,item_name,updated_price):
+def update_item_price(data,item_name=None,updated_price=None):
+    item_name = str(input('Masukan nama barang yang ingin diganti: '))
+    updated_price = float(input(f'Masukan harga pengganti dari barang {item_name}: '))
     data['item'][item_name][1] = updated_price
     data['item'][item_name][2] = data['item'][item_name][0]*data['item'][item_name][1]
     return data
@@ -112,7 +120,7 @@ def check_out(data):
         disc = 0.06
         sum = sum * (1 - disc)
     else : 
-        disc = 0.06
+        disc = 0.05
         sum = sum * (1 - disc)
     print(f"Untuk Transaksi {data['user']['id']} berikut detailnya :")
     insert_to_table(data)
