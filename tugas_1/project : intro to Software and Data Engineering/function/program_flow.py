@@ -1,6 +1,6 @@
 #from function.transaction import *
 from transaction import *
-from database import *
+# from database import *
 
 def action():
     run = True
