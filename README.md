@@ -2,6 +2,12 @@
 pacman docs and repo for submission
 
 ## TUGAS 1
+Link Video : 
+https://youtu.be/-etRBjlgY70
+
+Link Docum : 
+https://github.com/abilcode/pacman/tree/main/tugas_1
+
 
 
 
