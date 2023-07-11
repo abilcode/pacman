@@ -1,5 +1,5 @@
-#from function.transaction import *
-from transaction import *
+from function.transaction import *
+#from transaction import *
 # from database import *
 
 def action():
@@ -17,6 +17,7 @@ def action():
 
         if ipt == '0':
             print('Berikut adalah transaksi final:')
+            insert_to_table(data)
             run = False
 
         if ipt == '1':
@@ -25,6 +26,7 @@ def action():
         elif ipt =='2':
             data = reset_transaction(data)
             print('Transaksi telah direset, silahkan melakukan input kembali!')
+            insert_to_table(data)
 
         elif ipt == '3':
             if len(data['item'])!=0:
@@ -51,6 +53,7 @@ def action():
 
         elif ipt == '7':
             check_order(data)
+            insert_to_table(data)
 
         else:
             check_out(data)
