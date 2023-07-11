@@ -53,7 +53,7 @@ The loop continues until the user chooses to exit by entering '0'.
 Note: The code includes several function definitions (transaction_obj, transaction_id, add_item, delete_item, reset_transaction, update_item_name, update_item_qty, update_item_price, insert_to_table, check_order, check_out) that are called within the action() function. However, their flow and internal logic are not explicitly shown in the provided code snippet.
 
 
-
+```
 log tugas 1 : 
 Masukan input untuk melakukan action
 Action : 
@@ -476,3 +476,5 @@ Discount : 0.07
 Total Price : 18600000.0
 
 (pacman) abilfad@abils-MacBook-Air pacman % 
+
+```
